@@ -4,7 +4,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
    <application
         android:requestLegacyExternalStorage="true"
-        android:label="landmark_recognition_flutter"
+        android:label="Landmark Recognition"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
