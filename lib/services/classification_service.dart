@@ -5,7 +5,7 @@ import 'package:image/image.dart' as img;
 import 'package:tflite_flutter/tflite_flutter.dart';
 import 'package:tflite_flutter_helper/tflite_flutter_helper.dart';
 
-class ClasssificationService {
+class ClassificationService {
   Interpreter interpreter;
   InterpreterOptions _interpreterOptions;
   TfLiteType outputType = TfLiteType.uint8;
@@ -15,7 +15,7 @@ class ClasssificationService {
   List<int> outputShape;
   List<String> labels;
 
-  ClasssificationService({String modelPath, String labelPath}) {
+  ClassificationService({String modelPath, String labelPath}) {
     _interpreterOptions = InterpreterOptions();
 
     _interpreterOptions.threads = 1;
