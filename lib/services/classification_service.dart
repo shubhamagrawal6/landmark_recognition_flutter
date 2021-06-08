@@ -24,6 +24,10 @@ class ClassificationService {
     loadLabel(labelPath);
   }
 
+  dispose() {
+    interpreter.close();
+  }
+
   Future<void> loadModel(String modelPath) async {
     try {
       interpreter =
@@ -62,12 +66,13 @@ class ClassificationService {
         .process(inputImage);
   }
 
-  List<dynamic> runClassification({Uint8List imageData}) {
+  List<dynamic> runClassification({Uint8List imageData, int resultCount}) {
     img.Image _baseImage = img.decodeImage(imageData);
     TensorImage _inputImage = TensorImage.fromImage(_baseImage);
     _inputImage = imageResize(_inputImage);
 
-    interpreter.run(_inputImage, outputBuffer.getBuffer());
+    interpreter.run(_inputImage.buffer, outputBuffer.getBuffer());
+
     Map<String, double> map = Map<String, double>();
     var outputResult = outputBuffer.getDoubleList();
     var length = min(outputResult.length, labels.length);
@@ -84,6 +89,8 @@ class ClassificationService {
         }
       }
     }
+
+    // sort
     var sortedKeys = map.keys.toList(growable: false)
       ..sort((k1, k2) => map[k2].compareTo(map[k1]));
 
