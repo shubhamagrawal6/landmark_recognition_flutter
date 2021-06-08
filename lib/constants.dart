@@ -5,7 +5,7 @@ class Constants {
       'text': 'This model is trained to recognize landmarks from North America',
       'image': 'assets/images/MtRushmore.jpg',
       'model': 'models/landmarks_classifier_north_america.tflite',
-      'label': 'labels/landmark_label_north_america.txt'
+      'label': 'labels/landmark_label_northamerica.txt'
     },
     {
       'title': 'South America',
@@ -13,7 +13,7 @@ class Constants {
           'This model is trained to recognize landmarks from South America.',
       'image': 'assets/images/Rio.jpg',
       'model': 'models/landmarks_classifier_south_america.tflite',
-      'label': 'labels/landmark_label_south_america.txt'
+      'label': 'labels/landmark_label_southamerica.txt'
     },
     {
       'title': 'Asia',
